@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - Attendance</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0ffef; /* Very light green/mint background */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header / Navigation Bar -->
+    <header class="bg-white shadow-md border-b border-gray-100 sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-gray-800">Staff Portal</h1>
+            <div class="flex items-center space-x-4">
+                <span id="welcomeMessage" class="text-lg text-gray-600 font-medium">
+                    Welcome, <span id="userName" class="text-sky-600">Loading...</span>
+                </span>
+                <button 
+                    id="logoutBtn"
+                    onclick="logoutUser()"
+                    class="py-2 px-4 bg-red-500 text-white text-sm font-semibold rounded-lg shadow-sm hover:bg-red-600 transition duration-150"
+                >
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow p-4 sm:p-6 lg:p-8 flex items-center justify-center">
+        
+        <!-- Attendance Card -->
+        <div class="w-full max-w-lg bg-white p-6 sm:p-10 rounded-xl shadow-2xl border border-green-100 text-center">
+            
+            <h2 class="text-3xl font-extrabold text-gray-800 mb-2">Today's Attendance</h2>
+            <p id="dateDisplay" class="text-lg text-gray-500 mb-8 font-mono"></p>
+            
+            <!-- Dynamic Message / Status Display -->
+            <p id="attendanceStatusMsg" class="text-md font-medium mb-6 text-gray-700 h-6">
+                Please wait...
+            </p>
+
+            <!-- Check-in/Check-out Button -->
+            <!-- The ID and onclick action are set here, but JS will control the style and text -->
+            <button 
+                id="attendanceBtn"
+                onclick="handleCheckAction()"
+                disabled
+                class="w-full py-4 px-6 bg-gray-400 text-white font-bold text-xl rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-opacity-50"
+            >
+                Loading Status...
+            </button>
+            
+            <!-- Confirmation Message -->
+            <div id="confirmationMessage" class="mt-6 text-center text-sm font-semibold hidden"></div>
+
+        </div>
+    </main>
+
+    <!-- Link to the JavaScript file -->
+    <script src="app.js"></script>
+</body>
+</html>
